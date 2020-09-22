@@ -1,9 +1,17 @@
 import React from 'react';
-import Head from './components/Head';
+import Navbar from './components/Navbar';
+import Section1 from './components/Section1';
+import styled from 'styled-components';
 function App() {
+  const Wrapper = styled.section`
+    padding: 20%;
+    background: #ccc;
+  `;
   return (
     <div className="App">
-      <Head />
+      <Navbar />
+      <Section1 />
+      <Wrapper />
     </div>
   );
 }
