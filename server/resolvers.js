@@ -5,12 +5,12 @@ const colors = [
   {
     id: 1,
     title: 'blue',
-    text: 'tfsdfsdfsdfsdfsdf',
+    text: 'niebieski kolor cos',
   },
   {
     id: 2,
     title: 'green',
-    text: 'tekfgsdfsdfsdfst2',
+    text: 'zielony kolor cos',
   },
   {
     id: 3,

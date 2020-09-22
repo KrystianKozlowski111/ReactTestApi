@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-
-const getColors = gql`
+let tek = 2;
+const getColorsById = gql`
   {
-    getColors {
+    getColorsById(id: ${tek}) {
+      id
       title
       text
     }
@@ -15,36 +16,18 @@ const getColors = gql`
 export default class Apollo extends Component {
   render() {
     return (
-      <Query query={getColors}>
+      <Query query={getColorsById}>
         {({ loading, error, data }) => {
-          if (loading) return <div>Ładuje dane...</div>;
-          if (error) return <div>Wystąpił błąd</div>;
+          if (loading) return <div>loading</div>;
+          if (error) return <div>error</div>;
 
-          const colors = data.getColors;
+          const colors = data.getColorsById;
 
           return (
-            <div className="Apollo">
-              <h1>GraphQL response:</h1>
-              <div className="container">
-                <p className="container__item">
-                  <span>
-                    <b>title:</b>
-                  </span>
-                  <span>
-                    <b>text:</b>
-                  </span>
-                </p>
-                {colors.map((color) => (
-                  <p className="container__item" key={color.id}>
-                    <span
-                      dangerouslySetInnerHTML={{ __html: color.title }}
-                    ></span>
-                    <span
-                      dangerouslySetInnerHTML={{ __html: color.text }}
-                    ></span>
-                  </p>
-                ))}
-              </div>
+            <div>
+              {colors.title}
+              <br />
+              {colors.text}
             </div>
           );
         }}

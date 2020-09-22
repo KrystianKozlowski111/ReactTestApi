@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   bottom: -100px;
 `;
 
-const Flex = () => {
+const Flex = ({ tek }) => {
   return (
     <div>
       <Wrapper>
