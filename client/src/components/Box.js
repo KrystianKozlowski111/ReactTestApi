@@ -12,7 +12,7 @@ const Box = () => {
   return (
     <div>
       <Wrapper>
-        <getColor.title />
+        <getColor />
       </Wrapper>
     </div>
   );
