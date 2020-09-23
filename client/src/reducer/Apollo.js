@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 
 const GET_COLORS_BY_ID = gql`
   query getColorsById($id: Int!) {
-    color(id: 1) {
+    color(id: $id) {
       title
       text
     }
