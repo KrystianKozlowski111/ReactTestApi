@@ -11,7 +11,7 @@ const Box = () => {
   return (
     <div>
       <Wrapper>
-        <GetColor id={1} />
+        <GetColor id={2} />
       </Wrapper>
     </div>
   );

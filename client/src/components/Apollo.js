@@ -1,20 +1,28 @@
 import React from 'react';
 import { gql, useQuery } from '@apollo/client';
+
 const GET_COLORS_BY_ID = gql`
-  query getColorsById($id: Int!) {
-    color(id: $id) {
+  query getColorsById($id: ID!) {
+    getColorsById(id: $id) {
       title
       text
     }
   }
 `;
+
 function GetColor({ id }) {
   const { loading, error, data } = useQuery(GET_COLORS_BY_ID, {
     variables: { id },
   });
   if (loading) return null;
   if (error) return `Error! ${error}`;
-  return <title src={data.Color.title} />;
+  return (
+    <p>
+      {data.title}
+      <br />
+      {data.text}
+    </p>
+  );
 }
 export default GetColor;
 /*
