@@ -17,9 +17,9 @@ function getColor({ id }) {
   if (loading) return null;
   if (error) return `Error! ${error}`;
 
-  return <title src={(data.Color.title, data.Color.text)} />;
+  return <title src={data.Color.title} />;
 }
-
+export default getColor;
 /*
 const Text = styled.h1`
   color: Black;
