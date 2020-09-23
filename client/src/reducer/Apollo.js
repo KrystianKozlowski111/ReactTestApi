@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import { gql, useQuery } from '@apollo/client';
 
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
-let id = 1;
-const getColorsById = gql`
-  {
-    getColorsById(id: ${id}) {
-      id
+const GET_COLORS_BY_ID = gql`
+  query getColorsById($id: Int!) {
+    color(id: 1) {
       title
       text
     }
   }
 `;
+function getColor({ id }) {
+  const { loading, error, data } = useQuery(GET_COLORS_BY_ID, {
+    variables: { id },
+  });
+
+  if (loading) return null;
+  if (error) return `Error! ${error}`;
+
+  return <title src={(data.Color.title, data.Color.text)} />;
+}
+
+/*
 const Text = styled.h1`
   color: Black;
   text-align: center;
@@ -46,4 +54,4 @@ export default class Apollo extends Component {
       </Query>
     );
   }
-}
+}*/

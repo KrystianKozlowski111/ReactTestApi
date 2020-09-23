@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Apollo from '../reducer/Apollo';
+import { getColor } from '../reducer/Apollo';
 const Wrapper = styled.div`
   width: 33, 3%;
   background-color: white;
@@ -12,7 +12,7 @@ const Box = () => {
   return (
     <div>
       <Wrapper>
-        <Apollo />
+        <getColor />
       </Wrapper>
     </div>
   );
