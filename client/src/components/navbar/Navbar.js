@@ -1,6 +1,4 @@
 import React from 'react';
-import Red from '../../views/Red.js';
-import App from '../../views/App.js';
 import logo from '../../Assets/Images/logo.png';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import {
@@ -22,16 +20,7 @@ const Navbar = () => {
           </Image>
           <Menu>
             <List>
-              <ElemenetList>
-                <Router>
-                  <Link to="/Red">Red</Link>
-                  <Switch>
-                    <Route path="/Red">
-                      <Red />
-                    </Route>
-                  </Switch>
-                </Router>
-              </ElemenetList>
+              <ElemenetList>Red</ElemenetList>
               <ElemenetList>Blue</ElemenetList>
               <ElemenetList>Green</ElemenetList>
               <ElemenetList>Yellow</ElemenetList>
@@ -44,6 +33,5 @@ const Navbar = () => {
     </div>
   );
 };
-
 //c
 export default Navbar;
