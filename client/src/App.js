@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 function App() {
   const Wrapper = styled.section`
-    padding: 20%;
+    padding: 10%;
     background: #ccc;
   `;
 

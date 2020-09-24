@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Flex from './Flex';
 const Wrapper = styled.section`
-  padding: 20%;
+  padding-top: 5%;
+  padding-bottom: 15%;
   background: grey;
   position: relative;
 `;
@@ -18,7 +19,7 @@ const Button = styled.button`
   padding: 0.25em 1em;
   position: relative;
   top: 50%;
-  left: 40%;
+  left: 44%;
   background-color: #7a7979;
 `;
 const Text = styled.h1`
@@ -30,8 +31,7 @@ const Text = styled.h1`
 const Text2 = styled.p`
   color: White;
   text-align: center;
-
-  font-size: 15px;
+  font-size: 18px;
   font-family: Perpetua, sans-serif;
 `;
 const Section1 = () => {
