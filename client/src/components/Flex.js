@@ -8,10 +8,10 @@ const Wrapper = styled.div`
   transform: translateX(-50%);
   display: flex;
   gap: 20px;
-  bottom: -100px;
+  bottom: -150px;
 `;
 const Wrapper2 = styled.div`
-  width: 33, 3%;
+  width: 150px;
   background-color: white;
   padding: 50px 20px;
   box-shadow: 5px 5px 10px 5px #888888;
