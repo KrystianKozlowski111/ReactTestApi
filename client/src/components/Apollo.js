@@ -36,44 +36,5 @@ function GetColor({ id }) {
       <Text2>{data.getColorsById.text}</Text2>
     </div>
   );
-
-  /* <p>
-      {GetColor.title}
-      <br />
-      {GetColor.text}
-    </p>*/
 }
 export default GetColor;
-/*
-const Text = styled.h1`
-  color: Black;
-  text-align: center;
-  font-size: 60px;
-  font-family: Perpetua, sans-serif;
-`;
-const Text2 = styled.p`
-  color: Black;
-  text-align: center;
-  font-size: 20px;
-  font-family: Perpetua, sans-serif;
-`;
-export default class Apollo extends Component {
-  render() {
-    return (
-      <Query query={getColorsById}>
-        {({ loading, error, data }) => {
-          if (loading) return <div>loading</div>;
-          if (error) return <div>error</div>;
-          const colors = data.getColorsById;
-          return (
-            <div>
-              <Text></Text>
-              <br />
-              <Text2></Text2>
-            </div>
-          );
-        }}
-      </Query>
-    );
-  }
-}*/
