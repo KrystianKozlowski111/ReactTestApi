@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import GetColor from './Apollo';
 const Wrapper = styled.div`
-  max-width: 1240px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
