@@ -10,15 +10,16 @@ const GET_COLORS_BY_ID = gql`
   }
 `;
 const Text = styled.h1`
+  padding-top: 40%;
   color: Black;
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
   font-family: Perpetua, sans-serif;
 `;
 const Text2 = styled.p`
   color: Black;
   text-align: center;
-  font-size: 20px;
+  font-size: 15px;
   font-family: Perpetua, sans-serif;
 `;
 function GetColor({ id }) {
@@ -32,7 +33,7 @@ function GetColor({ id }) {
   return (
     <div>
       <Text>{data.getColorsById.title}</Text>
-      <br />
+
       <Text2>{data.getColorsById.text}</Text2>
     </div>
   );
