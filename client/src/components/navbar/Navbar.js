@@ -1,29 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
-import logo from './logo.png';
-const Header = styled.section`
-  background: white;
-`;
-const Menu = styled.div`
-  display: inline-block;
-  width: 80%;
-`;
-const Container = styled.div`
-  max-width: 1240px;
-  margin: auto;
-`;
-const List = styled.ul`
-  list-style: none;
-  text-align: right;
-`;
-const Image = styled.div`
-  padding: 50px;
-  display: inline-block;
-`;
-const ElemenetList = styled.li`
-  display: inline-block;
-  padding: 30px;
-`;
+import Red from '../../views/Red.js';
+import App from '../../views/App.js';
+import logo from '../../Assets/Images/logo.png';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {
+  Header,
+  Container,
+  Image,
+  Menu,
+  List,
+  ElemenetList,
+} from './NavbarStyles.js';
+
 const Navbar = () => {
   return (
     <div className="head">
@@ -34,7 +22,16 @@ const Navbar = () => {
           </Image>
           <Menu>
             <List>
-              <ElemenetList>Red</ElemenetList>
+              <ElemenetList>
+                <Router>
+                  <Link to="/Red">Red</Link>
+                  <Switch>
+                    <Route path="/Red">
+                      <Red />
+                    </Route>
+                  </Switch>
+                </Router>
+              </ElemenetList>
               <ElemenetList>Blue</ElemenetList>
               <ElemenetList>Green</ElemenetList>
               <ElemenetList>Yellow</ElemenetList>
@@ -47,5 +44,6 @@ const Navbar = () => {
     </div>
   );
 };
+
 //c
 export default Navbar;

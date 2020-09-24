@@ -1,6 +1,6 @@
 import React from 'react';
 import { gql, useQuery } from '@apollo/client';
-import styled from 'styled-components';
+import { Text, Text2 } from './ApolloStyles.js';
 const GET_COLORS_BY_ID = gql`
   query getColorsById($id: ID!) {
     getColorsById(id: $id) {
@@ -9,19 +9,7 @@ const GET_COLORS_BY_ID = gql`
     }
   }
 `;
-const Text = styled.h1`
-  padding-top: 40%;
-  color: Black;
-  text-align: center;
-  font-size: 30px;
-  font-family: Perpetua, sans-serif;
-`;
-const Text2 = styled.p`
-  color: Black;
-  text-align: center;
-  font-size: 15px;
-  font-family: Perpetua, sans-serif;
-`;
+
 function GetColor({ id }) {
   const { loading, error, data } = useQuery(GET_COLORS_BY_ID, {
     variables: { id },

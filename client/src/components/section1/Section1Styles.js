@@ -1,13 +1,11 @@
-import React from 'react';
 import styled from 'styled-components';
-import Flex from './Flex';
-const Wrapper = styled.section`
+export const Wrapper = styled.section`
   padding-top: 5%;
   padding-bottom: 15%;
   background: grey;
   position: relative;
 `;
-const Button = styled.button`
+export const Button = styled.button`
   border-radius: 50% / 5%;
   top: -2px;
   bottom: -2px;
@@ -22,32 +20,15 @@ const Button = styled.button`
   left: 44%;
   background-color: #7a7979;
 `;
-const Text = styled.h1`
+export const Text = styled.h1`
   color: White;
   text-align: center;
   font-size: 60px;
   font-family: Perpetua, sans-serif;
 `;
-const Text2 = styled.p`
+export const Text2 = styled.p`
   color: White;
   text-align: center;
   font-size: 18px;
   font-family: Perpetua, sans-serif;
 `;
-const Section1 = () => {
-  return (
-    <div>
-      <Wrapper>
-        <Text>I ❤ Color</Text>
-        <Text2>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut
-        </Text2>
-        <Button>Over to you</Button>
-        <Flex />
-      </Wrapper>
-    </div>
-  );
-};
-//c
-export default Section1;
