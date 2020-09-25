@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../components/navbar';
 import Section1 from '../components/section1';
 import { Wrapper } from '../globalStyles/GlobalStyles.js';
 
