@@ -6,7 +6,6 @@ import { Wrapper } from '../globalStyles/GlobalStyles.js';
 function App() {
   return (
     <>
-      <Navbar />
       <Section1 />
       <Wrapper />
     </>

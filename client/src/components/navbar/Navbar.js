@@ -20,7 +20,16 @@ const Navbar = () => {
           </Image>
           <Menu>
             <List>
-              <ElemenetList>Red</ElemenetList>
+              <ElemenetList>
+                <li>
+                  <Link to="/">Grey</Link>
+                </li>
+              </ElemenetList>
+              <ElemenetList>
+                <li>
+                  <Link to="/red">Red</Link>
+                </li>
+              </ElemenetList>
               <ElemenetList>Blue</ElemenetList>
               <ElemenetList>Green</ElemenetList>
               <ElemenetList>Yellow</ElemenetList>
