@@ -12,7 +12,6 @@ const Section1 = () => {
           eiusmod tempor incididunt ut
         </Text2>
         <Button>Over to you</Button>
-        <Flex />
       </Wrapper>
     </div>
   );

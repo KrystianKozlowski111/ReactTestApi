@@ -6,4 +6,4 @@ import Navbar from '../components/navbar';
 
 storiesOf('common', module)
   .addDecorator((getStory) => <MemoryRouter>{getStory()}</MemoryRouter>)
-  .add('Component Name', () => <Navbar />);
+  .add('Navbar', () => <Navbar />);

@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   transform: translateX(-50%);
   display: flex;
   gap: 20px;
-  bottom: -150px;
+  bottom: -120px;
 `;
 export const Wrapper2 = styled.div`
   height: 200px;
