@@ -2,7 +2,7 @@ import React from 'react';
 import Red from './Red.js';
 import App from './App.js';
 import Navbar from '../components/navbar';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 function Main() {
   return (
     <>

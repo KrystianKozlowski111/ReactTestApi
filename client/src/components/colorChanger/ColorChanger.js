@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wrapper } from '../../globalStyles/GlobalStyles.js';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function ColorChanger() {
   const [color, setColor] = useState('#ccc');

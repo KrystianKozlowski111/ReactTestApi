@@ -1,20 +1,14 @@
 import React from 'react';
-import { Wrapper, Wrapper2 } from './FlexStyles.js';
-import GetColor from '../apollo';
+import { Wrapper } from './FlexStyles.js';
+import Box from '../box';
 
-const Flex = ({ tek }) => {
+const Flex = () => {
   return (
     <div>
       <Wrapper>
-        <Wrapper2>
-          <GetColor id={1} />
-        </Wrapper2>
-        <Wrapper2>
-          <GetColor id={2} />
-        </Wrapper2>
-        <Wrapper2>
-          <GetColor id={3} />
-        </Wrapper2>
+        <Box id={1} />
+        <Box id={2} />
+        <Box id={3} />
       </Wrapper>
     </div>
   );

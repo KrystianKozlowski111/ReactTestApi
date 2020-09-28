@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from '../../Assets/Images/logo.png';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import {
   Header,
   Container,
