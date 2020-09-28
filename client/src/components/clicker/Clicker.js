@@ -1,16 +1,24 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-
+import GetColor from '../apollo';
+import { Wrapper, Wrapper2 } from '../flex/FlexStyles.js';
 function Click() {
   useEffect(() => {
-    document.title = `Kliknięto ${count} razy`;
+    document.title = `Color Id ${count}`;
   });
-  const [count, setCount] = useState(0);
-
+  const [count = 1, setCount] = useState(1);
+  if (count > 3) {
+    setCount(1);
+  }
+  console.log(GetColor);
   return (
     <div className="Red">
-      <p>Kliknięto {count} razy</p>
-      <button onClick={() => setCount(count + 1)}>Kliknij mnie</button>
+      <button onClick={() => setCount(count + 1)}>Color Changer</button>
+      <Wrapper>
+        <Wrapper2>
+          <GetColor id={count} />
+        </Wrapper2>
+      </Wrapper>
     </div>
   );
 }

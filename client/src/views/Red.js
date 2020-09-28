@@ -5,8 +5,8 @@ import { Wrapper } from '../globalStyles/GlobalStyles.js';
 function Red() {
   return (
     <div className="Red">
-      <Click />
       <ColorChanger></ColorChanger>
+      <Click />
     </div>
   );
 }
