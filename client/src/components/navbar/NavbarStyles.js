@@ -19,7 +19,7 @@ export const Button = styled.a`
   color: black;
   &:hover {
     background: grey;
-    color: black;
+    color: white;
   }
 `;
 
