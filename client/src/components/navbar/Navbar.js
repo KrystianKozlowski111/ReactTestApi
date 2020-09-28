@@ -8,6 +8,7 @@ import {
   Menu,
   List,
   ElemenetList,
+  Button,
 } from './NavbarStyles.js';
 
 const Navbar = () => {
@@ -21,20 +22,41 @@ const Navbar = () => {
           <Menu>
             <List>
               <ElemenetList>
-                <li>
-                  <Link to="/">Grey</Link>
-                </li>
+                <Button href="/red" target="_blank">
+                  Grey{' '}
+                </Button>
+              </ElemenetList>
+
+              <ElemenetList>
+                <Button href="/red" target="_blank">
+                  Red{' '}
+                </Button>
               </ElemenetList>
               <ElemenetList>
-                <li>
-                  <Link to="/red">Red</Link>
-                </li>
+                <Button href="/red" target="_blank">
+                  Blue{' '}
+                </Button>
               </ElemenetList>
-              <ElemenetList>Blue</ElemenetList>
-              <ElemenetList>Green</ElemenetList>
-              <ElemenetList>Yellow</ElemenetList>
-              <ElemenetList>Pink</ElemenetList>
-              <ElemenetList>Purple</ElemenetList>
+              <ElemenetList>
+                <Button href="/red" target="_blank">
+                  Green{' '}
+                </Button>
+              </ElemenetList>
+              <ElemenetList>
+                <Button href="/red" target="_blank">
+                  Yellow{' '}
+                </Button>
+              </ElemenetList>
+              <ElemenetList>
+                <Button href="/red" target="_blank">
+                  Pink{' '}
+                </Button>
+              </ElemenetList>
+              <ElemenetList>
+                <Button href="/red" target="_blank">
+                  Purple{' '}
+                </Button>
+              </ElemenetList>
             </List>
           </Menu>
         </Container>

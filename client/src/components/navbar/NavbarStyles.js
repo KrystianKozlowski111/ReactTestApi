@@ -6,6 +6,23 @@ export const Menu = styled.div`
   display: inline-block;
   width: 80%;
 `;
+export const Button = styled.a`
+  border: none;
+  height: 3rem;
+  width: 50%;
+  border-radius: 0.5rem;
+  padding: 2% 25% 3% 25%;
+  z-index: 5;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: White;
+  color: black;
+  &:hover {
+    background: grey;
+    color: black;
+  }
+`;
+
 export const Container = styled.div`
   max-width: 1240px;
   margin: auto;
