@@ -19,5 +19,5 @@ const Flex = ({ tek }) => {
     </div>
   );
 };
-//c
+
 export default Flex;

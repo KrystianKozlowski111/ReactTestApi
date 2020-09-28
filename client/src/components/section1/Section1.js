@@ -1,6 +1,7 @@
 import React from 'react';
-import { Wrapper, Text, Text2, Button } from './Section1Styles.js';
-import Flex from '../flex';
+import { Wrapper, Text, Text2 } from './Section1Styles.js';
+
+import Buttonn from './Section1Button.js';
 
 const Section1 = () => {
   return (
@@ -11,7 +12,7 @@ const Section1 = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut
         </Text2>
-        <Button>Over to you</Button>
+        <Buttonn />
       </Wrapper>
     </div>
   );
