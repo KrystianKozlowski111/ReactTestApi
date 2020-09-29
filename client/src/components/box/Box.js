@@ -1,6 +1,7 @@
 import React from 'react';
 import { Wrapper2, Image } from './BoxStyles.js';
-import GetColor from '../apollo';
+import GetColor from '../getColor';
+
 const Box = ({ img, id }) => {
   return (
     <>

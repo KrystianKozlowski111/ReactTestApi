@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import GetColor from '../apollo';
+import GetColor from '../getColor';
 import { Wrapper, Wrapper2 } from '../flex/FlexStyles.js';
 function Click() {
   useEffect(() => {

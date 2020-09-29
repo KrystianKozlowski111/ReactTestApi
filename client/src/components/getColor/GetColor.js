@@ -1,6 +1,6 @@
 import React from 'react';
 import { gql, useQuery } from '@apollo/client';
-import { Text, Text2 } from './ApolloStyles.js';
+import { Text, Text2 } from './GetColorStyles.js';
 const GET_COLORS_BY_ID = gql`
   query getColorsById($id: ID!) {
     getColorsById(id: $id) {
