@@ -18,12 +18,14 @@ function GetColor({ id }) {
   if (error) return `Error! ${error}`;
   console.log(data);
   console.log(data.getColorsById.title);
+  let title = data.getColorsById.title;
+  let text = data.getColorsById.text;
   return (
-    <div>
-      <Text>{data.getColorsById.title}</Text>
+    <>
+      <Text>{title}</Text>
 
-      <Text2>{data.getColorsById.text}</Text2>
-    </div>
+      <Text2>{text}</Text2>
+    </>
   );
 }
 export default GetColor;

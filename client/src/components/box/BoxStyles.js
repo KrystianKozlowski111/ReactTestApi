@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-
+export const Image = styled.div`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+`;
 export const Wrapper2 = styled.div`
   height: 200px;
   width: 200px;

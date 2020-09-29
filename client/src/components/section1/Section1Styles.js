@@ -17,18 +17,22 @@ export const Button = styled.button`
   padding: 0.25em 1em;
   position: relative;
   top: 50%;
-  left: 44%;
-  background-color: #7a7979;
+  left: 43%;
+  background-color: #787878;
+  &:hover {
+    background: #606060;
+    color: white;
+  }
 `;
 export const Text = styled.h1`
   color: White;
   text-align: center;
   font-size: 60px;
-  font-family: Perpetua, sans-serif;
+  font-family: Montserrat, sans-serif;
 `;
 export const Text2 = styled.p`
   color: White;
   text-align: center;
   font-size: 18px;
-  font-family: Perpetua, sans-serif;
+  font-family: Nunito, sans-serif;
 `;

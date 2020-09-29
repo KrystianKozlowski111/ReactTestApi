@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper } from '../../globalStyles/GlobalStyles.js';
+import { Wrapper } from '../../Assets/globalStyles/GlobalStyles.js';
 import { useState } from 'react';
 
 function ColorChanger() {
