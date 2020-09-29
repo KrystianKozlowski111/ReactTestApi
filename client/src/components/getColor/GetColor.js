@@ -2,8 +2,9 @@ import React from 'react';
 import { gql, useQuery } from '@apollo/client';
 import { Text, Text2 } from './GetColorStyles.js';
 const GET_COLORS_BY_ID = gql`
-  query getColorsById($id: ID!) {
-    getColorsById(id: $id) {
+  query getColors {
+    getColors {
+      id
       title
       text
     }
@@ -17,9 +18,9 @@ function GetColor({ id }) {
   if (loading) return null;
   if (error) return `Error! ${error}`;
   console.log(data);
-  console.log(data.getColorsById.title);
-  let title = data.getColorsById.title;
-  let text = data.getColorsById.text;
+  console.log(data.getColors.title);
+  let title = data.getColors.title;
+  let text = data.getColors.text;
   return (
     <>
       <Text>{title}</Text>
