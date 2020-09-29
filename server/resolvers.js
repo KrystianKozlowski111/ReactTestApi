@@ -4,18 +4,18 @@ const { Kind } = require('graphql/language');
 const colors = [
   {
     id: 1,
-    title: 'blue',
-    text: 'niebieski kolor cos',
+    title: 'Blue',
+    text: 'Niebieski kolor cos',
   },
   {
     id: 2,
-    title: 'green',
-    text: 'zielony kolor cos',
+    title: 'Green',
+    text: 'Zielony kolor cos',
   },
   {
     id: 3,
-    title: 'red',
-    text: 'fsdfsdfsdfds',
+    title: 'Red',
+    text: 'Czerwony kolor cos',
   },
 ];
 const resolvers = {
