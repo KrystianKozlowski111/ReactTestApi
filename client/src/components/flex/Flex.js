@@ -8,9 +8,9 @@ const Flex = () => {
   return (
     <div>
       <Wrapper>
-        <Box img={img1} id={1} />
-        <Box img={img2} id={2} />
-        <Box img={img3} id={3} />
+        <Box img={img1} />
+        <Box img={img2} />
+        <Box img={img3} />
       </Wrapper>
     </div>
   );
