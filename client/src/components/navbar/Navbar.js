@@ -12,7 +12,7 @@ import {
 
 const Navbar = () => {
   return (
-    <div className="head">
+    <>
       <Header>
         <Container>
           <Image>
@@ -60,7 +60,7 @@ const Navbar = () => {
           </Menu>
         </Container>
       </Header>
-    </div>
+    </>
   );
 };
 //c

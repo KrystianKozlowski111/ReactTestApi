@@ -5,7 +5,7 @@ import Buttonn from './Section1Button.js';
 
 const Section1 = () => {
   return (
-    <div>
+    <>
       <Wrapper>
         <Text>I ❤ Color</Text>
         <Text2>
@@ -14,7 +14,7 @@ const Section1 = () => {
         </Text2>
         <Buttonn />
       </Wrapper>
-    </div>
+    </>
   );
 };
 //c

@@ -18,8 +18,6 @@ const client = new ApolloClient({
 
 storiesOf('Box', module).add('Box', () => (
   <ApolloProvider2 client={client}>
-    <ApolloProvider client={client}>
-      <Box />
-    </ApolloProvider>
+    <Box />
   </ApolloProvider2>
 ));

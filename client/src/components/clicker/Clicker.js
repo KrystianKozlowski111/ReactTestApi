@@ -12,14 +12,14 @@ function Click() {
   }
   console.log(GetColor);
   return (
-    <div className="Red">
+    <>
       <button onClick={() => setCount(count + 1)}>Color Changer</button>
       <Wrapper>
         <Wrapper2>
           <GetColor id={count} />
         </Wrapper2>
       </Wrapper>
-    </div>
+    </>
   );
 }
 export default Click;

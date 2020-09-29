@@ -4,11 +4,11 @@ import GetColor from '../apollo';
 
 const Box = ({ id }) => {
   return (
-    <div>
+    <>
       <Wrapper2>
         <GetColor id={id} />
       </Wrapper2>
-    </div>
+    </>
   );
 };
 
