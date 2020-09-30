@@ -23,7 +23,7 @@ const Flex = () => {
       <Wrapper>
         <Loading loading={loading} />
         {data &&
-          data.legnth > 0 &&
+          data.length > 0 &&
           data.map((item) => (
             <Box title={item.title} text={item.text} key={item.id} />
           ))}
