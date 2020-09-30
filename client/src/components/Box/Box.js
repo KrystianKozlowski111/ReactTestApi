@@ -1,6 +1,5 @@
-import React from "react";
-import { Wrapper, Image, Title, Text, Img } from "./Box.style";
-
+import React from 'react';
+import { Wrapper, Image, Title, Text, Img } from './Box.style';
 const Box = (props) => {
   const { title, text, img, loading, error } = props;
   return (

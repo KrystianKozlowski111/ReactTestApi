@@ -11,6 +11,7 @@ const GET_COLORS = gql`
       id
       title
       text
+      img
     }
   }
 `;
@@ -27,7 +28,12 @@ const Flex = () => {
           data.getColors &&
           data.getColors.length > 0 &&
           data.getColors.map((item) => (
-            <Box title={item.title} text={item.text} key={item.id} />
+            <Box
+              title={item.title}
+              text={item.text}
+              img={item.img}
+              key={item.id}
+            />
           ))}
       </Wrapper>
     </div>

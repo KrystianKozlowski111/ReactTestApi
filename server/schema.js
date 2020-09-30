@@ -7,6 +7,7 @@ const typeDefs = gql`
     id: ID!
     title: String!
     text: String!
+    img: String!
   }
 
   type Query {

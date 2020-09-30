@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Header = styled.section`
   background: white;
@@ -33,7 +33,7 @@ export const List = styled.ul`
   text-align: right;
 `;
 export const Image = styled.div`
-  padding: 50px;
+  padding: 30px 20px;
   display: inline-block;
 `;
 export const ElemenetList = styled.li`

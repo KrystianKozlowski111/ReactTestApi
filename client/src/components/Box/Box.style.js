@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 export const Image = styled.div`
   display: block;
   margin-left: auto;

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import logo from "../../assets/images/logo.png";
+import logo from '../../assets/images/logo.png';
 
 import {
   Header,
@@ -10,7 +10,7 @@ import {
   List,
   ElemenetList,
   Button,
-} from "./Navbar.style";
+} from './Navbar.style';
 
 const Navbar = () => {
   return (
@@ -22,12 +22,6 @@ const Navbar = () => {
           </Image>
           <Menu>
             <List>
-              <ElemenetList>
-                <Button href="/red" target="_blank">
-                  Grey
-                </Button>
-              </ElemenetList>
-
               <ElemenetList>
                 <Button href="/red" target="_blank">
                   Red
