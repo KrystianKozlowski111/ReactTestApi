@@ -17,14 +17,16 @@ const GET_COLORS = gql`
 
 const Flex = () => {
   const { loading, error, data } = useQuery(GET_COLORS);
+  console.log(data);
 
   return (
     <div>
       <Wrapper>
         <Loading loading={loading} />
         {data &&
-          data.length > 0 &&
-          data.map((item) => (
+          data.getColors &&
+          data.getColors.length > 0 &&
+          data.getColors.map((item) => (
             <Box title={item.title} text={item.text} key={item.id} />
           ))}
       </Wrapper>
