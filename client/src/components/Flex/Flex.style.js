@@ -6,5 +6,8 @@ export const Wrapper = styled.div`
   transform: translateX(-50%);
   display: flex;
   gap: 20px;
-  bottom: -120px;
+  top: 85%;
+  width: 1240px;
+  margin: auto;
+  margin-bottom: 50px;
 `;

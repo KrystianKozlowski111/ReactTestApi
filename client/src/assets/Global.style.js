@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
-import { Media } from "./Mixins.style";
-
+import { createGlobalStyle } from 'styled-components';
+import { Media } from './Mixins.style';
+import styled from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
   html{
     ${Media.xxlg`
@@ -20,8 +20,10 @@ export const GlobalStyle = createGlobalStyle`
     `}
   }
   body {
+
     margin: 0;
     padding: 0;
     overscroll-behavior-y: contain;
+    background-color: #e0e0e0;
   }
 `;

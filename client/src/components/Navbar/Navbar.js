@@ -48,7 +48,7 @@ const Navbar = () => {
                 </Button>
               </ElemenetList>
               <ElemenetList>
-                <Button href="/red" target="_blank">
+                <Button href="/red" id="last" target="_blank">
                   Purple
                 </Button>
               </ElemenetList>

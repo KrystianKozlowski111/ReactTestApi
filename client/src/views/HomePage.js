@@ -1,13 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import Flex from "../components/Flex";
-import Section from "../components/Section";
-
+import Section from '../components/Section';
+import { BottomSection } from '../assets/Global.style.js';
 function HomePage() {
   return (
     <>
       <Section />
-      <Flex />
     </>
   );
 }

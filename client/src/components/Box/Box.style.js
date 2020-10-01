@@ -3,13 +3,15 @@ export const Image = styled.div`
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 25px;
   width: 50%;
 `;
 export const Wrapper = styled.div`
-  height: 200px;
-  width: 200px;
+  min-height: 20em;
+  width: 33.33%;
+  text-align: center;
   background-color: white;
-  padding: 50px 20px;
+  padding: 30px 20px;
   box-shadow: 5px 5px 10px 5px #888888;
 `;
 
