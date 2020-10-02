@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
 
 import { Wrapper } from './Flex.style';
@@ -24,16 +24,21 @@ const Flex = () => {
     <div>
       <Wrapper>
         <Loading loading={loading} />
+
         {data &&
           data.getColors &&
           data.getColors.length > 0 &&
           data.getColors.map((item) => (
-            <Box
-              title={item.title}
-              text={item.text}
-              img={item.img}
-              key={item.id}
-            />
+            <>
+              {item.title === 'Blue' ? (
+                <Box
+                  title={item.title}
+                  text={item.text}
+                  img={item.img}
+                  key={item.id}
+                />
+              ) : null}
+            </>
           ))}
       </Wrapper>
     </div>

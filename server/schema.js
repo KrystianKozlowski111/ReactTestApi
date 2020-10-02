@@ -12,7 +12,7 @@ const typeDefs = gql`
 
   type Query {
     getColors: [Color]
-    getColorsById(id: ID!): Color
+    getColorsByTitle(title: String!): Color
   }
 `;
 
