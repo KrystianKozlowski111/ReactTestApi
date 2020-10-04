@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
 
-import { Wrapper, Search } from './Flex.style';
+import { Wrapper, Section, Search } from './Flex.style';
 import Box from '../Box';
 import Loading from '../Loading';
 
@@ -19,12 +19,11 @@ const GET_COLORS = gql`
 const Flex = () => {
   const { loading, error, data } = useQuery(GET_COLORS);
   console.log(data);
-  const [color, setColor] = useState('');
+  const [color, setColor] = useState('Red');
   return (
     <div>
-      <Search>
-        <input value={color} onInput={(e) => setColor(e.target.value)} />
-      </Search>
+      <Search value={color} onInput={(e) => setColor(e.target.value)} />
+
       <Wrapper>
         <Loading loading={loading} />
 
@@ -40,7 +39,9 @@ const Flex = () => {
                   img={item.img}
                   key={item.id}
                 />
-              ) : null}
+              ) : (
+                <Section />
+              )}
             </>
           ))}
       </Wrapper>
