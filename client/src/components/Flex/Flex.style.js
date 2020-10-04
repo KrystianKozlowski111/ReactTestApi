@@ -11,3 +11,7 @@ export const Wrapper = styled.div`
   margin: auto;
   margin-bottom: 50px;
 `;
+export const Search = styled.form`
+  background-color: grey;
+  border-radius: 50px;
+`;
