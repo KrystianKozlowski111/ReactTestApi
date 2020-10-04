@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import magnifier from '../../assets/images/magnifier.png';
 export const Wrapper = styled.div`
   position: absolute;
   left: 50%;
@@ -10,9 +10,12 @@ export const Wrapper = styled.div`
   width: 1240px;
   margin: auto;
   margin-bottom: 50px;
+  justify-content: center;
 `;
 export const Search = styled.input`
   padding: 10px;
+  background-image: url(${magnifier});
+  background-repeat: no-repeat;
   position: relative;
   margin-top: 50px;
   left: 12%;
@@ -20,6 +23,8 @@ export const Search = styled.input`
   color: black;
   background-color: white;
   border-radius: 50px;
+  padding-left: 30px;
+  font-size: 16px;
 `;
 export const Section = styled.div`
   min-height: 20em;
