@@ -11,6 +11,8 @@ export const Wrapper = styled.div`
   margin: auto;
   margin-bottom: 50px;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 `;
 export const Search = styled.input`
   padding: 10px;

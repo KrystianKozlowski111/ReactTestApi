@@ -38,9 +38,7 @@ const Flex = () => {
                   img={item.img}
                   key={item.id}
                 />
-              ) : (
-                <Section />
-              )}
+              ) : null}
             </>
           ))}
       </Wrapper>
