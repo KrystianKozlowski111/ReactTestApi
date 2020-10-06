@@ -3,11 +3,11 @@ import { Wrapper, Edit, Image, Title, Text, Img } from './Box.style';
 import { useForm } from 'react-hook-form';
 const Box = (props) => {
   const { title, text, img, loading, error } = props;
-  const [editedTitle, setTitle] = useState(title);
+
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => {
-    let title1 = data.title;
-    console.log(title1);
+    let editedTitle = data.title;
+    console.log(editedTitle);
   };
 
   return (
@@ -17,14 +17,11 @@ const Box = (props) => {
 
         <input type="submit" />
       </form>
-      <Edit
-        value={editedTitle}
-        onInput={(e) => setTitle(e.target.value)}
-      ></Edit>
+
       <Image>
         <Img src={img} />
       </Image>
-      <Title>{editedTitle}</Title>
+      <Title>{title}</Title>
       <Text>{text}</Text>
     </Wrapper>
   );
