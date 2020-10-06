@@ -31,7 +31,8 @@ const Flex = () => {
           data.getColors.length > 0 &&
           data.getColors.map((item) => (
             <>
-              {item.title.toString().toLowerCase().includes(color) ? (
+              {item.title.toString().toLowerCase().includes(color) &&
+              item.title != '' ? (
                 <Box
                   title={item.title}
                   text={item.text}

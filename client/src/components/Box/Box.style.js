@@ -15,7 +15,16 @@ export const Wrapper = styled.div`
   padding: 30px 20px;
   box-shadow: 5px 5px 10px 5px #888888;
 `;
+export const Edit = styled.input`
+  background-repeat: no-repeat;
+  position: relative;
 
+  color: black;
+  background-color: white;
+  border-radius: 50px;
+  padding-left: 30px;
+  font-size: 16px;
+`;
 export const Title = styled.h1`
   color: Black;
   text-align: center;
