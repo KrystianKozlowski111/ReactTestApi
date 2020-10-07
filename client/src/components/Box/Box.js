@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 const Box = (props) => {
   const { title, text, img, loading, error } = props;
   const [editMode, setEditMode] = useState(false);
-
+  const [edit, setEdit] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm({
     defaultValues: {
       title,
@@ -39,20 +39,33 @@ const Box = (props) => {
             )}
             {editMode && <input type="submit" />}
           </form>
+
           <button
             onClick={() => {
-              setEditMode(!editMode);
+              setEdit(!edit);
             }}
           >
-            Edit
+            Edycja
           </button>
-          <button
-            onClick={() => {
-              setDelete(!deleted);
-            }}
-          >
-            Delete
-          </button>
+
+          {edit == true ? (
+            <>
+              <button
+                onClick={() => {
+                  setEditMode(!editMode);
+                }}
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => {
+                  setDelete(!deleted);
+                }}
+              >
+                Delete
+              </button>
+            </>
+          ) : null}
         </Wrapper>
       ) : null}
     </>
