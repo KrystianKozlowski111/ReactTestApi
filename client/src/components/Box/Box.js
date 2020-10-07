@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { Wrapper, Edit, Image, Title, Text, Img } from './Box.style';
+import {
+  Wrapper,
+  ButtonsWrapper,
+  EditButton,
+  Image,
+  Title,
+  Text,
+  Img,
+} from './Box.style';
 import { useForm } from 'react-hook-form';
 const Box = (props) => {
   const { title, text, img, loading, error } = props;
@@ -33,26 +41,36 @@ const Box = (props) => {
               <Title>{editedTitle}</Title>
             )}
             {editMode ? (
-              <input name="title" name={'text'} ref={register} />
+              <>
+                <input name="title" name={'text'} ref={register} />
+                <button
+                  onClick={() => {
+                    setEditMode(!editMode);
+                  }}
+                >
+                  Cancel
+                </button>
+              </>
             ) : (
               <Text>{editedText}</Text>
             )}
             {editMode && <input type="submit" />}
           </form>
 
-          <button
+          <EditButton
             onClick={() => {
               setEdit(!edit);
             }}
           >
-            Edycja
-          </button>
+            ...
+          </EditButton>
 
           {edit == true ? (
-            <>
+            <ButtonsWrapper>
               <button
                 onClick={() => {
                   setEditMode(!editMode);
+                  setEdit(!edit);
                 }}
               >
                 Edit
@@ -60,11 +78,12 @@ const Box = (props) => {
               <button
                 onClick={() => {
                   setDelete(!deleted);
+                  setEdit(!edit);
                 }}
               >
                 Delete
               </button>
-            </>
+            </ButtonsWrapper>
           ) : null}
         </Wrapper>
       ) : null}

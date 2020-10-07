@@ -15,6 +15,22 @@ export const Wrapper = styled.div`
   padding: 30px 20px;
   box-shadow: 5px 5px 10px 5px #888888;
 `;
+export const ButtonsWrapper = styled.div`
+  text-align: center;
+  background-color: white;
+  padding: 30px 20px;
+  box-shadow: 5px 5px 10px 5px #888888;
+`;
+export const EditButton = styled.button`
+  cursor: pointer;
+  border: none;
+  background-color: White;
+  color: black;
+  &:hover {
+    background: grey;
+    color: white;
+  }
+`;
 export const Edit = styled.input`
   background-repeat: no-repeat;
   position: relative;
