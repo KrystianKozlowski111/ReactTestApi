@@ -21,7 +21,7 @@ export const Search = styled.input`
   position: relative;
   margin-top: 50px;
   left: 12%;
-  transform: translateY(200%);
+  transform: translateY(250%);
   color: black;
   background-color: white;
   border-radius: 50px;

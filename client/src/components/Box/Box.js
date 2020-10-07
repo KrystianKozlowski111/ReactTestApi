@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import EditImg from '../../assets/images/edit.png';
+import DeleteImg from '../../assets/images/delete.png';
 import {
   Wrapper,
   ButtonsWrapper,
@@ -7,7 +9,10 @@ import {
   Title,
   Text,
   Img,
+  TitleInput,
+  TextInput,
 } from './Box.style';
+
 import { useForm } from 'react-hook-form';
 const Box = (props) => {
   const { title, text, img, loading, error } = props;
@@ -36,25 +41,29 @@ const Box = (props) => {
               <Img src={img} />
             </Image>
             {editMode ? (
-              <input name="title" name={'title'} ref={register} />
+              <TitleInput name="title" name={'title'} ref={register} />
             ) : (
               <Title>{editedTitle}</Title>
             )}
             {editMode ? (
               <>
-                <input name="title" name={'text'} ref={register} />
-                <button
-                  onClick={() => {
-                    setEditMode(!editMode);
-                  }}
-                >
-                  Cancel
+                <TextInput name="title" name={'text'} ref={register} />
+                <button type="submit" id="SaveButton">
+                  Save
                 </button>
               </>
             ) : (
               <Text>{editedText}</Text>
             )}
-            {editMode && <input type="submit" />}
+            {editMode && (
+              <button
+                onClick={() => {
+                  setEditMode(!editMode);
+                }}
+              >
+                Cancel
+              </button>
+            )}
           </form>
 
           <EditButton
@@ -73,7 +82,7 @@ const Box = (props) => {
                   setEdit(!edit);
                 }}
               >
-                Edit
+                <img src={EditImg} className="App-edit" alt="edit" /> Edit
               </button>
               <button
                 onClick={() => {
@@ -81,6 +90,7 @@ const Box = (props) => {
                   setEdit(!edit);
                 }}
               >
+                <img src={DeleteImg} className="App-delete" alt="delete" />
                 Delete
               </button>
             </ButtonsWrapper>
