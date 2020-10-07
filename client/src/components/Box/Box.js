@@ -11,9 +11,12 @@ const Box = (props) => {
     },
   });
   const onSubmit = (data) => {
-    let editedTitle = data.title;
-    console.log(editedTitle);
+    setTitle(data.title);
+    setText(data.text);
+    setEditMode(!editMode);
   };
+  const [editedTitle, setTitle] = useState(title);
+  const [editedText, setText] = useState(text);
   return (
     <Wrapper>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -23,12 +26,12 @@ const Box = (props) => {
         {editMode ? (
           <input name="title" name={'title'} ref={register} />
         ) : (
-          <Title>{title}</Title>
+          <Title>{editedTitle}</Title>
         )}
         {editMode ? (
           <input name="title" name={'text'} ref={register} />
         ) : (
-          <Text>{text}</Text>
+          <Text>{editedText}</Text>
         )}
         {editMode && <input type="submit" />}
       </form>
