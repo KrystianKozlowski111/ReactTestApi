@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
     padding: 8px 30px;
     margin: 0px;
     font-weight: bold;
-    color: #0080ff;
+
     cursor: pointer;
     &#SaveButton {
       color: White;
