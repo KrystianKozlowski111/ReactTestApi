@@ -20,7 +20,7 @@ const Flex = () => {
   console.log(data);
   const [color, setColor] = useState('');
   return (
-    <div>
+    <div key="1">
       <Search value={color} onInput={(e) => setColor(e.target.value)}></Search>
 
       <Wrapper>
@@ -29,19 +29,20 @@ const Flex = () => {
         {data &&
           data.getColors &&
           data.getColors.length > 0 &&
-          data.getColors.map((item) => (
-            <>
-              {item.title.toString().toLowerCase().includes(color) ||
-              (item.title.toString().includes(color) && item.title != '') ? (
+          data.getColors.map((item) => {
+            if (
+              item.title.toString().toLowerCase().includes(color) ||
+              (item.title.toString().includes(color) && item.title != '')
+            )
+              return (
                 <Box
                   title={item.title}
                   text={item.text}
                   img={item.img}
                   key={item.id}
                 />
-              ) : null}
-            </>
-          ))}
+              );
+          })}
       </Wrapper>
     </div>
   );
