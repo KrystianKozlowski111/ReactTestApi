@@ -39,6 +39,7 @@ const Flex = () => {
                   title={item.title}
                   text={item.text}
                   img={item.img}
+                  id={item.id}
                   key={item.id}
                 />
               );

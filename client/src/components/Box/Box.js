@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import EditImg from '../../assets/images/edit.png';
 import DeleteImg from '../../assets/images/delete.png';
+import { gql, useMutation } from '@apollo/client';
 import {
   Wrapper,
   ButtonsWrapper,
@@ -12,10 +13,22 @@ import {
   TitleInput,
   TextInput,
 } from './Box.style';
-
 import { useForm } from 'react-hook-form';
+
+const UPDATE_COLOR = gql`
+  mutation updateColor($id: ID!, $title: String!, $text: String!) {
+    updateColor(id: $id, title: $title, text: $text) {
+      id
+      title
+      text
+    }
+  }
+`;
 const Box = (props) => {
-  const { title, text, img, loading, error } = props;
+  const [updateColor] = useMutation(UPDATE_COLOR);
+
+  const { title, text, img, id, loading, error } = props;
+
   const [editMode, setEditMode] = useState(false);
   const [edit, setEdit] = useState(false);
   const { register, handleSubmit, watch, errors } = useForm({
@@ -24,15 +37,13 @@ const Box = (props) => {
       text,
     },
   });
+
+  const [deleted, setDelete] = useState(false);
+
   const onSubmit = (data) => {
-    setTitle(data.title);
-    setText(data.text);
+    updateColor({ variables: { id, title: data.title, text: data.text } });
     setEditMode(!editMode);
   };
-  const [deleted, setDelete] = useState(false);
-  const [editedTitle, setTitle] = useState(title);
-  const [editedText, setText] = useState(text);
-
   return (
     <>
       {deleted != true ? (
@@ -44,7 +55,7 @@ const Box = (props) => {
             {editMode ? (
               <TitleInput name="title" name={'title'} ref={register} />
             ) : (
-              <Title>{editedTitle}</Title>
+              <Title>{title}</Title>
             )}
             {editMode ? (
               <>
@@ -54,7 +65,7 @@ const Box = (props) => {
                 </button>
               </>
             ) : (
-              <Text>{editedText}</Text>
+              <Text>{text}</Text>
             )}
             {editMode && (
               <button
