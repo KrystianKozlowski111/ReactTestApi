@@ -67,6 +67,17 @@ const resolvers = {
     getColorsByTitle: (_, { title }) =>
       colors.find((color) => color.title == title),
   },
+  Mutation: {
+    updateColor: (_, { id, title, text, img }) => {
+      const Color = {
+        id,
+        title,
+        text,
+        img,
+      };
+      return Color;
+    },
+  },
 };
 
 module.exports = resolvers;
