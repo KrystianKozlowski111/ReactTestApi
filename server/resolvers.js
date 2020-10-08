@@ -1,7 +1,7 @@
 const { GraphQLScalarType } = require('graphql');
 const { Kind } = require('graphql/language');
 
-const colors = [
+let colors = [
   {
     id: 1,
     title: 'Blue',
@@ -75,6 +75,9 @@ const resolvers = {
         text,
         img,
       };
+      colors[id - 1].id = id;
+      colors[id - 1].title = title;
+      colors[id - 1].text = text;
       return Color;
     },
   },

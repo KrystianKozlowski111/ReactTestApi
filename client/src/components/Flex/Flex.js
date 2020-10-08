@@ -20,7 +20,7 @@ const Flex = () => {
   console.log(data);
   const [color, setColor] = useState('');
   return (
-    <div key="1">
+    <div>
       <Search value={color} onInput={(e) => setColor(e.target.value)}></Search>
 
       <Wrapper>
