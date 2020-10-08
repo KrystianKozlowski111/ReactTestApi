@@ -92,6 +92,7 @@ export const TextInput = styled.textarea`
   min-height: 2em;
   margin-bottom: 10px;
   outline: none;
+  resize: vertical;
   text-align: center;
   font-size: 15px;
   width: 100%;

@@ -32,6 +32,7 @@ const Box = (props) => {
   const [deleted, setDelete] = useState(false);
   const [editedTitle, setTitle] = useState(title);
   const [editedText, setText] = useState(text);
+
   return (
     <>
       {deleted != true ? (
