@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { Media } from './Mixins.style';
-import styled from 'styled-components';
+
 export const GlobalStyle = createGlobalStyle`
   html{
     ${Media.xxlg`

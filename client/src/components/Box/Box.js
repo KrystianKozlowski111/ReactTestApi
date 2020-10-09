@@ -53,20 +53,20 @@ const Box = (props) => {
 
   return (
     <>
-      {deleted != true ? (
+      {deleted !== true ? (
         <Wrapper>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Image>
               <Img src={img} />
             </Image>
             {editMode ? (
-              <TitleInput name="title" name={'title'} ref={register} />
+              <TitleInput name="title" ref={register} />
             ) : (
               <Title>{title}</Title>
             )}
             {editMode ? (
               <>
-                <TextInput name="title" name={'text'} ref={register} />
+                <TextInput name="text" ref={register} />
                 <button type="submit" id="SaveButton">
                   Save
                 </button>

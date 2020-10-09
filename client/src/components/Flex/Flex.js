@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
-import { Wrapper, Section, Search } from './Flex.style';
+import { Wrapper, Search } from './Flex.style';
 import Box from '../Box';
 import Loading from '../Loading';
 
@@ -21,7 +21,10 @@ const Flex = () => {
   const [color, setColor] = useState('');
   return (
     <div>
-      <Search value={color} onInput={(e) => setColor(e.target.value)}></Search>
+      <Search
+        defaultValue={color}
+        onInput={(e) => setColor(e.target.value)}
+      ></Search>
 
       <Wrapper>
         <Loading loading={loading} />
@@ -32,7 +35,7 @@ const Flex = () => {
           data.getColors.map((item) => {
             if (
               item.title.toString().toLowerCase().includes(color) ||
-              (item.title.toString().includes(color) && item.title != '')
+              (item.title.toString().includes(color) && item.title !== '')
             )
               return (
                 <Box
