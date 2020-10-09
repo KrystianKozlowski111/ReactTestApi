@@ -24,8 +24,16 @@ const UPDATE_COLOR = gql`
     }
   }
 `;
+const DELETE_COLOR = gql`
+  mutation deleteColor($id: ID!) {
+    deleteColor(id: $id) {
+      id
+    }
+  }
+`;
 const Box = (props) => {
   const [updateColor] = useMutation(UPDATE_COLOR);
+  const [deleteColor] = useMutation(DELETE_COLOR);
   const { title, text, img, id, loading, error } = props;
   const { register, handleSubmit, setValue, watch, errors, data } = useForm({
     mode: 'onBlur',
@@ -99,6 +107,7 @@ const Box = (props) => {
               <button
                 onClick={() => {
                   setDelete(!deleted);
+                  deleteColor({ variables: { id } });
                   setEdit(!edit);
                 }}
               >

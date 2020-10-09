@@ -84,8 +84,12 @@ const resolvers = {
       const Color = {
         id,
       };
-      colors = colors.slice(id);
 
+      for (var i = 0; i < colors.length; i++)
+        if (colors[i].id == id) {
+          colors.splice(i, 1);
+          break;
+        }
       return Color;
     },
   },
