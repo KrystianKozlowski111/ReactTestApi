@@ -80,6 +80,14 @@ const resolvers = {
       colors[id - 1].text = text;
       return Color;
     },
+    deleteColor: (_, { id }) => {
+      const Color = {
+        id,
+      };
+      colors = colors.slice(id);
+
+      return Color;
+    },
   },
 };
 

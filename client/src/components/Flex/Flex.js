@@ -16,8 +16,8 @@ const GET_COLORS = gql`
 `;
 
 const Flex = () => {
-  const { loading, error, data } = useQuery(GET_COLORS);
-  console.log(data);
+  const { loading, data } = useQuery(GET_COLORS);
+
   const [color, setColor] = useState('');
   return (
     <div>

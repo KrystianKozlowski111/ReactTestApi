@@ -14,6 +14,7 @@ const typeDefs = gql`
   }
   type Mutation {
     updateColor(id: ID!, title: String, text: String, img: String): Color
+    deleteColor(id: ID!): Color
   }
 `;
 
