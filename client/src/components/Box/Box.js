@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import EditImg from '../../assets/images/edit.png';
 import DeleteImg from '../../assets/images/delete.png';
-import { gql, useQuery, useMutation } from '@apollo/client';
+import { gql, useMutation } from '@apollo/client';
 import {
   Wrapper,
   ButtonsWrapper,
@@ -34,8 +34,8 @@ const DELETE_COLOR = gql`
 const Box = (props) => {
   const [updateColor] = useMutation(UPDATE_COLOR);
   const [deleteColor] = useMutation(DELETE_COLOR);
-  const { title, text, img, id, loading, error } = props;
-  const { register, handleSubmit, setValue, watch, errors, data } = useForm({
+  const { title, text, img, id } = props;
+  const { register, handleSubmit } = useForm({
     mode: 'onBlur',
     defaultValues: {
       title,
@@ -48,7 +48,6 @@ const Box = (props) => {
   const onSubmit = (data) => {
     updateColor({ variables: { id, title: data.title, text: data.text } });
     setEditMode(!editMode);
-    //setValue([{ title: data.title }, { text: data.text }]);
   };
   const [deleted, setDelete] = useState(false);
 
@@ -94,7 +93,7 @@ const Box = (props) => {
             ...
           </EditButton>
 
-          {edit == true ? (
+          {edit === true ? (
             <ButtonsWrapper>
               <button
                 onClick={() => {

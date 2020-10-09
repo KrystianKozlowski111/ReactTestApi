@@ -75,9 +75,13 @@ const resolvers = {
         text,
         img,
       };
-      colors[id - 1].id = id;
-      colors[id - 1].title = title;
-      colors[id - 1].text = text;
+      for (var i = 0; i < colors.length; i++)
+        if (colors[i].id == id) {
+          colors[i].title = title;
+          colors[i].text = text;
+          break;
+        }
+
       return Color;
     },
     deleteColor: (_, { id }) => {
