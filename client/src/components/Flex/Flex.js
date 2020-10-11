@@ -28,8 +28,9 @@ const Flex = () => {
 
       <Wrapper>
         <Loading loading={loading} />
-
-        {data &&
+        
+        
+{data &&
           data.getColors &&
           data.getColors.length > 0 &&
           data.getColors.map((item) => {
@@ -47,6 +48,8 @@ const Flex = () => {
                 />
               );
           })}
+
+       
       </Wrapper>
     </div>
   );

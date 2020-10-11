@@ -73,6 +73,7 @@ const Box = (props) => {
               </>
             ) : (
               <Text>{text}</Text>
+              
             )}
             {editMode && (
               <button
