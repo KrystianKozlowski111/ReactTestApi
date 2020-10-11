@@ -5,18 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node index.js"
+    "start": "node index.js",
+    "client-install": "npm install --prefix client",
+    "client": "cd ../client && npm start",
+    "dev": "concurrently \"npm start\" \"npm run client\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Czaroos/GraphQL-sandbox.git"
+    "url": "git+https://github.com"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Czaroos/GraphQL-sandbox/issues"
+    "url": "https://github.com"
   },
-  "homepage": "https://github.com/Czaroos/GraphQL-sandbox#readme",
+  "homepage": "https://github.com",
   "dependencies": {
     "apollo-server": "^2.16.1",
     "graphql": "^15.3.0",
@@ -24,6 +27,7 @@
   },
   "devDependencies": {
     "apollo-server-testing": "^2.16.1",
+    "concurrently": "^5.3.0",
     "nodemon": "^2.0.4"
   }
 }
