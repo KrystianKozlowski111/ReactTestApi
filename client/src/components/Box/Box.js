@@ -14,6 +14,7 @@ import {
   TextInput,
 } from './Box.style';
 import { useForm } from 'react-hook-form';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 const UPDATE_COLOR = gql`
   mutation updateColor($id: ID!, $title: String!, $text: String!) {
@@ -24,6 +25,7 @@ const UPDATE_COLOR = gql`
     }
   }
 `;
+
 const DELETE_COLOR = gql`
   mutation deleteColor($id: ID!) {
     deleteColor(id: $id) {
@@ -32,7 +34,8 @@ const DELETE_COLOR = gql`
   }
 `;
 const Box = (props) => {
-  const [updateColor] = useMutation(UPDATE_COLOR);
+
+  const [updateColor,{data}] = useMutation(UPDATE_COLOR,{onCompleted: (data) => { console.log(data);}});
   const [deleteColor] = useMutation(DELETE_COLOR,{onCompleted: () => {  setDelete(!deleted);}});
   const { title, text, img, id } = props;
   const { register, handleSubmit } = useForm({
@@ -48,14 +51,21 @@ const Box = (props) => {
   const onSubmit = (data) => {
     updateColor({ variables: { id, title: data.title, text: data.text } });
     setEditMode(!editMode);
+
   };
   const [deleted, setDelete] = useState(false);
 
   return (
     <>
+
       {deleted !== true ? (
         <Wrapper>
-          <form onSubmit={handleSubmit(onSubmit)}>
+    <OutsideClickHandler
+      onOutsideClick={() => {
+        setEditMode();
+      }}
+    >
+              <form onSubmit={handleSubmit(onSubmit)}>
             <Image>
               <Img src={img} />
             </Image>
@@ -93,7 +103,6 @@ const Box = (props) => {
           >
             ...
           </EditButton>
-
           {edit === true ? (
             <ButtonsWrapper>
               <button
@@ -115,6 +124,9 @@ const Box = (props) => {
               </button>
             </ButtonsWrapper>
           ) : null}
+    </OutsideClickHandler>
+ 
+          
         </Wrapper>
       ) : null}
     </>
