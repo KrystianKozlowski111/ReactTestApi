@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { gql, useQuery } from '@apollo/client';
+import { gql, useQuery, useMutation } from '@apollo/client';
 import { Wrapper, Search } from './Flex.style';
 import Box from '../Box';
 import Loading from '../Loading';
@@ -15,11 +15,23 @@ const GET_COLORS = gql`
   }
 `;
 
+const UPDATE_COLOR = gql`
+  mutation updateColor($id: ID!, $title: String!, $text: String!) {
+    updateColor(id: $id, title: $title, text: $text) {
+      id
+      title
+      text
+    }
+  }
+`;
 const Flex = () => {
-  const { loading, data } = useQuery(GET_COLORS);
-
+  const [state, setState] = useState();
+  const { loading, data } = useQuery(GET_COLORS/*,{onCompleted: (data) => { setState(data);console.log(state);console.log(data);}}*/);
+  const [updateColor,data1] = useMutation(UPDATE_COLOR,{onCompleted: (data1) => { setState(data1);console.log(state);console.log(data1);}});
   const [color, setColor] = useState('');
+
   return (
+    
     <div>
       <Search
         defaultValue={color}
@@ -39,7 +51,9 @@ const Flex = () => {
               (item.title.toString().includes(color) && item.title !== '')
             )
               return (
+                
                 <Box
+                  updateColor={updateColor}
                   title={item.title}
                   text={item.text}
                   img={item.img}

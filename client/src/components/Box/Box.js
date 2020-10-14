@@ -16,15 +16,6 @@ import {
 import { useForm } from 'react-hook-form';
 import OutsideClickHandler from 'react-outside-click-handler';
 
-const UPDATE_COLOR = gql`
-  mutation updateColor($id: ID!, $title: String!, $text: String!) {
-    updateColor(id: $id, title: $title, text: $text) {
-      id
-      title
-      text
-    }
-  }
-`;
 
 const DELETE_COLOR = gql`
   mutation deleteColor($id: ID!) {
@@ -35,9 +26,9 @@ const DELETE_COLOR = gql`
 `;
 const Box = (props) => {
 
-  const [updateColor,{data}] = useMutation(UPDATE_COLOR,{onCompleted: (data) => { console.log(data);}});
+  
   const [deleteColor] = useMutation(DELETE_COLOR,{onCompleted: () => {  setDelete(!deleted);}});
-  const { title, text, img, id } = props;
+  const { title, text, img, id, updateColor } = props;
   const { register, handleSubmit } = useForm({
     mode: 'onBlur',
     defaultValues: {
