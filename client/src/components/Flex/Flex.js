@@ -25,9 +25,10 @@ const UPDATE_COLOR = gql`
   }
 `;
 const Flex = () => {
-  const [state, setState] = useState();
+
   const { loading, data } = useQuery(GET_COLORS/*,{onCompleted: (data) => { setState(data);console.log(state);console.log(data);}}*/);
   const [updateColor,data1] = useMutation(UPDATE_COLOR,{onCompleted: (data1) => { setState(data1);console.log(state);console.log(data1);}});
+  const [state, setState] = useState(data1);
   const [color, setColor] = useState('');
 
   return (
