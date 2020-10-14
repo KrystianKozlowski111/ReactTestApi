@@ -58,13 +58,13 @@ const Box = (props) => {
   return (
     <>
 
-      {deleted !== true ? (
-        <Wrapper>
-    <OutsideClickHandler
-      onOutsideClick={() => {
-        setEditMode();
-      }}
-    >
+    {deleted !== true ? (
+      <Wrapper>
+                <OutsideClickHandler
+                onOutsideClick={() => {
+                  setEditMode();
+                }}
+              >
               <form onSubmit={handleSubmit(onSubmit)}>
             <Image>
               <Img src={img} />
