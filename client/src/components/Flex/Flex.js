@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { gql, useQuery, useMutation } from '@apollo/client';
 import { Wrapper, Search } from './Flex.style';
 import Box from '../Box';
 import Loading from '../Loading';
-
+const R = require('ramda');
 const GET_COLORS = gql`
   query getColors {
     getColors {
@@ -26,13 +26,29 @@ const UPDATE_COLOR = gql`
 `;
 const Flex = () => {
 
-  const { loading, data } = useQuery(GET_COLORS/*,{onCompleted: (data) => { setState(data);console.log(state);console.log(data);}}*/);
-  const [updateColor,data1] = useMutation(UPDATE_COLOR,{onCompleted: (data1) => { setState(data1);console.log(state);console.log(data1);}});
-  const [state, setState] = useState(data1);
+  const { loading, data } = useQuery(GET_COLORS);
+  const [state, setState] = useState([]);
   const [color, setColor] = useState('');
+  useEffect(()=>{
+    if(data) setState(data);
+    
+  },[data]);
+  const [updateColor, editResponse] = useMutation(UPDATE_COLOR, { 
+    onCompleted: (response) => { 
+      let b=R.append([{response}],{state},);
+
+      console.log(state, response, b);
+
+    } 
+  });
+ 
+
+  useEffect(()=>{
+    
+  },[state]);
 
   return (
-    
+
     <div>
       <Search
         defaultValue={color}
@@ -41,9 +57,9 @@ const Flex = () => {
 
       <Wrapper>
         <Loading loading={loading} />
-        
-        
-{data &&
+
+
+        {data &&
           data.getColors &&
           data.getColors.length > 0 &&
           data.getColors.map((item) => {
@@ -52,7 +68,7 @@ const Flex = () => {
               (item.title.toString().includes(color) && item.title !== '')
             )
               return (
-                
+
                 <Box
                   updateColor={updateColor}
                   title={item.title}
@@ -64,7 +80,7 @@ const Flex = () => {
               );
           })}
 
-       
+
       </Wrapper>
     </div>
   );
