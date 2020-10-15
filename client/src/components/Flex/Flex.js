@@ -3,7 +3,7 @@ import { gql, useQuery, useMutation } from '@apollo/client';
 import { Wrapper, Search } from './Flex.style';
 import Box from '../Box';
 import Loading from '../Loading';
-const R = require('ramda');
+
 const GET_COLORS = gql`
   query getColors {
     getColors {
@@ -29,19 +29,31 @@ const Flex = () => {
   const { loading, data } = useQuery(GET_COLORS);
   const [state, setState] = useState([]);
   const [color, setColor] = useState('');
-  useEffect(()=>{
-    if(data) setState(data);
-    
-  },[data]);
+
   const [updateColor, editResponse] = useMutation(UPDATE_COLOR, { 
     onCompleted: (response) => { 
-      let b=R.append([{response}],{state},);
+     
+      data.getColors.map((item) => {
+        if (
+          item.id==response.updateColor.id
+        )
+     {
+      item.title=response.updateColor.title;
+      item.text=response.updateColor.text;
+      console.log(data);
+      setState(data);
 
-      console.log(state, response, b);
+     }
+         
+      })
+      console.log(state);
 
     } 
   });
- 
+  useEffect(()=>{
+    if(response) setState(data);
+    
+  },[data]);
 
   useEffect(()=>{
     
