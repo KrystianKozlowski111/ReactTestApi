@@ -25,37 +25,30 @@ const UPDATE_COLOR = gql`
   }
 `;
 const Flex = () => {
-
   const { loading, data } = useQuery(GET_COLORS);
   const [state, setState] = useState([]);
   const [color, setColor] = useState('');
 
-  const [updateColor, editResponse] = useMutation(UPDATE_COLOR, { 
-    onCompleted: (response) => {     
-     data.getColors.map((item) => {
-        if (
-          item.id===response.updateColor.id
-        )
-     {
-      item.title=response.updateColor.title;
-      item.text=response.updateColor.text;   
-     }   
-    } )
-    setState(data.getColors);
-    console.log("mapped");
-    console.log(data.getColors);   
-
-    } 
+  const [updateColor, editResponse] = useMutation(UPDATE_COLOR, {
+    onCompleted: (response) => {
+      data.getColors.map((item) => {
+        if (item.id === response.updateColor.id) {
+          item.title = response.updateColor.title;
+          item.text = response.updateColor.text;
+        }
+      });
+      setState(data.getColors);
+      console.log('mapped');
+      console.log(data.getColors);
+    },
   });
- 
 
-  useEffect(()=>{ 
-    console.log("state");
+  useEffect(() => {
+    console.log('state');
     console.log(state);
-  },[state]);
+  }, [state]);
 
   return (
-
     <div>
       <Search
         defaultValue={color}
@@ -64,7 +57,6 @@ const Flex = () => {
 
       <Wrapper>
         <Loading loading={loading} />
-
 
         {data &&
           data.getColors &&
@@ -75,7 +67,6 @@ const Flex = () => {
               (item.title.toString().includes(color) && item.title !== '')
             )
               return (
-
                 <Box
                   updateColor={updateColor}
                   title={item.title}
@@ -86,8 +77,6 @@ const Flex = () => {
                 />
               );
           })}
-
-
       </Wrapper>
     </div>
   );

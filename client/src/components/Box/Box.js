@@ -16,7 +16,6 @@ import {
 import { useForm } from 'react-hook-form';
 import OutsideClickHandler from 'react-outside-click-handler';
 
-
 const DELETE_COLOR = gql`
   mutation deleteColor($id: ID!) {
     deleteColor(id: $id) {
@@ -25,9 +24,11 @@ const DELETE_COLOR = gql`
   }
 `;
 const Box = (props) => {
-
-  
-  const [deleteColor] = useMutation(DELETE_COLOR,{onCompleted: () => {  setDelete(!deleted);}});
+  const [deleteColor] = useMutation(DELETE_COLOR, {
+    onCompleted: () => {
+      setDelete(!deleted);
+    },
+  });
   const { title, text, img, id, updateColor } = props;
   const { register, handleSubmit } = useForm({
     mode: 'onBlur',
@@ -42,82 +43,77 @@ const Box = (props) => {
   const onSubmit = (data) => {
     updateColor({ variables: { id, title: data.title, text: data.text } });
     setEditMode(!editMode);
-
   };
   const [deleted, setDelete] = useState(false);
 
   return (
     <>
-
-    {deleted !== true ? (
-      <Wrapper>
-                <OutsideClickHandler
-                onOutsideClick={() => {
-                  setEditMode();
-                }}
-              >
-              <form onSubmit={handleSubmit(onSubmit)}>
-            <Image>
-              <Img src={img} />
-            </Image>
-            {editMode ? (
-              <TitleInput name="title" ref={register} />
-            ) : (
-              <Title>{title}</Title>
-            )}
-            {editMode ? (
-              <>
-                <TextInput name="text" ref={register} />
-                <button type="submit" id="SaveButton">
-                  Save
-                </button>
-              </>
-            ) : (
-              <Text>{text}</Text>
-              
-            )}
-            {editMode && (
-              <button
-                onClick={() => {
-                  setEditMode(!editMode);
-                }}
-              >
-                Cancel
-              </button>
-            )}
-          </form>
-
-          <EditButton
-            onClick={() => {
-              setEdit(!edit);
+      {deleted !== true ? (
+        <Wrapper>
+          <OutsideClickHandler
+            onOutsideClick={() => {
+              setEdit();
             }}
           >
-            ...
-          </EditButton>
-          {edit === true ? (
-            <ButtonsWrapper>
-              <button
-                onClick={() => {
-                  setEditMode(!editMode);
-                  setEdit(!edit);
-                }}
-              >
-                <img src={EditImg} className="App-edit" alt="edit" /> Edit
-              </button>
-              <button
-                onClick={() => {              
-                  deleteColor({ variables: { id } });
-                  setEdit(!edit);              
-                }}
-              >
-                <img src={DeleteImg} className="App-delete" alt="delete" />
-                Delete
-              </button>
-            </ButtonsWrapper>
-          ) : null}
-    </OutsideClickHandler>
- 
-          
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Image>
+                <Img src={img} />
+              </Image>
+              {editMode ? (
+                <TitleInput name="title" ref={register} />
+              ) : (
+                <Title>{title}</Title>
+              )}
+              {editMode ? (
+                <>
+                  <TextInput name="text" ref={register} />
+                  <button type="submit" id="SaveButton">
+                    Save
+                  </button>
+                </>
+              ) : (
+                <Text>{text}</Text>
+              )}
+              {editMode && (
+                <button
+                  onClick={() => {
+                    setEditMode(!editMode);
+                  }}
+                >
+                  Cancel
+                </button>
+              )}
+            </form>
+
+            <EditButton
+              onClick={() => {
+                setEdit(!edit);
+              }}
+            >
+              ...
+            </EditButton>
+            {edit === true ? (
+              <ButtonsWrapper>
+                <button
+                  onClick={() => {
+                    setEditMode(!editMode);
+                    setEdit(!edit);
+                  }}
+                >
+                  <img src={EditImg} className="App-edit" alt="edit" /> Edit
+                </button>
+                <button
+                  onClick={() => {
+                    deleteColor({ variables: { id } });
+                    setEdit(!edit);
+                  }}
+                >
+                  <img src={DeleteImg} className="App-delete" alt="delete" />
+                  Delete
+                </button>
+              </ButtonsWrapper>
+            ) : null}
+          </OutsideClickHandler>
         </Wrapper>
       ) : null}
     </>
