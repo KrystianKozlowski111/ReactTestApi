@@ -31,15 +31,17 @@ const Flex = () => {
 
   const [updateColor, editResponse] = useMutation(UPDATE_COLOR, {
     onCompleted: (response) => {
-      data.getColors.map((item) => {
-        if (item.id === response.updateColor.id) {
-          item.title = response.updateColor.title;
-          item.text = response.updateColor.text;
-        }
-      });
-      setState(data.getColors);
-      console.log('mapped');
-      console.log(data.getColors);
+      if (data && data.getColors && data.getColors.length > 0) {
+        data.getColors.map((item) => {
+          if (item.id === response.updateColor.id) {
+            item.title = response.updateColor.title;
+            item.text = response.updateColor.text;
+          }
+        });
+        setState(data.getColors);
+        console.log('mapped');
+        console.log(data.getColors);
+      }
     },
   });
 
