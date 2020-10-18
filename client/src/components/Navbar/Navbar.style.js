@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { Media } from '../../assets/Mixins.style';
 export const Header = styled.section`
   background: white;
   width: 100%;
@@ -38,6 +38,10 @@ export const Container = styled.div`
 export const List = styled.ul`
   list-style: none;
   text-align: right;
+  ${Media.md`
+  text-align: left;
+
+`}
 `;
 export const Image = styled.div`
   display: inline-block;
@@ -45,4 +49,8 @@ export const Image = styled.div`
 export const ElemenetList = styled.li`
   display: inline-block;
   padding: 0px 30px;
+  ${Media.md`
+  padding: 0px 15px;
+  
+`}
 `;

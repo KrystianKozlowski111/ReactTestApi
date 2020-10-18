@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { Media } from '../../assets/Mixins.style';
 export const Wrapper = styled.section`
   padding-top: 5%;
   padding-bottom: 15%;
@@ -12,6 +12,9 @@ export const Title = styled.h1`
   text-align: center;
   font-size: 70px;
   font-family: Montserrat, sans-serif;
+  ${Media.sm`
+  font-size: 30px;
+`}
 `;
 export const Text = styled.p`
   color: White;
@@ -21,4 +24,7 @@ export const Text = styled.p`
   margin: auto;
   margin-top: -20px;
   font-family: Nunito, sans-serif;
+  ${Media.sm`
+  font-size: 14px;
+`}
 `;

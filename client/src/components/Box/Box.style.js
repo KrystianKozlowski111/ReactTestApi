@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Media } from '../../assets/Mixins.style';
 export const Image = styled.div`
   display: block;
   margin-left: auto;
@@ -29,6 +30,14 @@ export const Wrapper = styled.div`
       border-radius: 5px;
     }
   }
+  ${Media.xlg`
+  width: calc(50% - 60px);
+  
+`}
+  ${Media.sm`
+  width: 100%;
+  
+`}
 `;
 export const ButtonsWrapper = styled.div`
   text-align: center;
