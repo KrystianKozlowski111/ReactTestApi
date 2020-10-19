@@ -31,11 +31,20 @@ const DELETE_COLOR = gql`
 `;
 function HomePage() {
   const [state, setState] = useState([]);
+
   const { loading, data } = useQuery(GET_COLORS, {
     onCompleted: (data) => {
       setState(data);
     },
   });
+  useEffect(() => {
+    setState(data);
+  }, [state, data]);
+  useEffect(() => {
+    if (data != null) {
+      setState(data);
+    }
+  }, [data]);
   const [deleteColor] = useMutation(DELETE_COLOR, {
     onCompleted: (response) => {
       data.getColors.forEach((element, index, array) => {
@@ -47,14 +56,7 @@ function HomePage() {
       });
     },
   });
-  useEffect(() => {
-    setState(data);
-  }, [state, data]);
-  useEffect(() => {
-    if (data != null) {
-      setState(data);
-    }
-  }, [data]);
+
   const [updateColor] = useMutation(UPDATE_COLOR, {
     onCompleted: (response) => {
       if (data && data.getColors && data.getColors.length > 0) {
