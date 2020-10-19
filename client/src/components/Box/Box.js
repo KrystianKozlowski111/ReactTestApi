@@ -25,7 +25,7 @@ const Box = (props) => {
       text,
     },
   });
-  console.log(title);
+
   const [editMode, setEditMode] = useState(false);
   const [edit, setEdit] = useState(false);
   const onSubmit = (data) => {

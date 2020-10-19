@@ -29,10 +29,21 @@ const DELETE_COLOR = gql`
     }
   }
 `;
-function HomePage(props) {
+function HomePage() {
   const [state, setState] = useState([]);
   const { loading, data } = useQuery(GET_COLORS);
-  const [deleteColor] = useMutation(DELETE_COLOR, {});
+  const [deleteColor] = useMutation(DELETE_COLOR, {
+    onCompleted: (response) => {
+      data.getColors.forEach((element, index, array) => {
+        if (element.id === response.deleteColor.id) {
+          array.splice(index, 1);
+
+          setState(data.getColors);
+        }
+      });
+    },
+  });
+  useEffect(() => {}, [state]);
   const [updateColor, editResponse] = useMutation(UPDATE_COLOR, {
     onCompleted: (response) => {
       if (data && data.getColors && data.getColors.length > 0) {
@@ -48,6 +59,7 @@ function HomePage(props) {
       }
     },
   });
+
   return (
     <>
       <Section
