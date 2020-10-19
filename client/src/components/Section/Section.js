@@ -4,7 +4,8 @@ import { Wrapper, Title, Text } from './Section.style';
 import Flex from '../Flex';
 import Button from '../Button';
 
-const Section = () => {
+const Section = (props) => {
+  const { updateColor, loading, data, deleteColor } = props;
   return (
     <Wrapper>
       <Title>I ❤ Color</Title>
@@ -14,7 +15,12 @@ const Section = () => {
         Learn by doing and you'll be a master in no time.
       </Text>
       <Button />
-      <Flex />
+      <Flex
+        updateColor={updateColor}
+        loading={loading}
+        data={data}
+        deleteColor={deleteColor}
+      />
     </Wrapper>
   );
 };

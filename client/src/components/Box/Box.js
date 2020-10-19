@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import EditImg from '../../assets/images/edit.png';
 import DeleteImg from '../../assets/images/delete.png';
-import { gql, useMutation } from '@apollo/client';
+
 import {
   Wrapper,
   ButtonsWrapper,
@@ -16,20 +16,8 @@ import {
 import { useForm } from 'react-hook-form';
 import OutsideClickHandler from 'react-outside-click-handler';
 
-const DELETE_COLOR = gql`
-  mutation deleteColor($id: ID!) {
-    deleteColor(id: $id) {
-      id
-    }
-  }
-`;
 const Box = (props) => {
-  const [deleteColor] = useMutation(DELETE_COLOR, {
-    onCompleted: () => {
-      setDelete(!deleted);
-    },
-  });
-  const { title, text, img, id, updateColor } = props;
+  const { title, text, img, id, deleteColor, updateColor } = props;
   const { register, handleSubmit, reset } = useForm({
     mode: 'onBlur',
     defaultValues: {
