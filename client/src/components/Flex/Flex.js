@@ -4,7 +4,7 @@ import Box from '../Box';
 import Loading from '../Loading';
 
 const Flex = (props) => {
-  const { updateColor, loading, data, deleteColor } = props;
+  const { updateColor, loading, state, deleteColor } = props;
 
   const [color, setColor] = useState('');
 
@@ -18,10 +18,10 @@ const Flex = (props) => {
       <Wrapper>
         <Loading loading={loading} />
 
-        {data &&
-          data.getColors &&
-          data.getColors.length > 0 &&
-          data.getColors.map((item) => {
+        {state &&
+          state.getColors &&
+          state.getColors.length > 0 &&
+          state.getColors.map((item) => {
             if (
               item.title.toString().toLowerCase().includes(color) ||
               (item.title.toString().includes(color) && item.title !== '')

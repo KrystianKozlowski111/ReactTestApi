@@ -48,7 +48,9 @@ function HomePage() {
       });
     },
   });
-  useEffect(() => {}, [state]);
+  useEffect(() => {
+    setState(data);
+  }, [state]);
   useEffect(() => {
     if (data != null) {
       setState(data);
@@ -77,7 +79,7 @@ function HomePage() {
       <Section
         updateColor={updateColor}
         loading={loading}
-        data={data}
+        state={state}
         deleteColor={deleteColor}
       />
     </>

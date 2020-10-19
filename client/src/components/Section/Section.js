@@ -5,7 +5,7 @@ import Flex from '../Flex';
 import Button from '../Button';
 
 const Section = (props) => {
-  const { updateColor, loading, data, deleteColor } = props;
+  const { updateColor, loading, state, deleteColor } = props;
   return (
     <Wrapper>
       <Title>I ❤ Color</Title>
@@ -18,7 +18,7 @@ const Section = (props) => {
       <Flex
         updateColor={updateColor}
         loading={loading}
-        data={data}
+        state={state}
         deleteColor={deleteColor}
       />
     </Wrapper>
