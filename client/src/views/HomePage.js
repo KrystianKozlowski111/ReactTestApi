@@ -33,7 +33,6 @@ function HomePage() {
   const [state, setState] = useState([]);
   const { loading, data } = useQuery(GET_COLORS, {
     onCompleted: (data) => {
-      console.log(data);
       setState(data);
     },
   });
@@ -50,15 +49,13 @@ function HomePage() {
   });
   useEffect(() => {
     setState(data);
-  }, [state]);
+  }, [state, data]);
   useEffect(() => {
     if (data != null) {
       setState(data);
-      console.log('data changed');
-      console.log(state);
     }
   }, [data]);
-  const [updateColor, editResponse] = useMutation(UPDATE_COLOR, {
+  const [updateColor] = useMutation(UPDATE_COLOR, {
     onCompleted: (response) => {
       if (data && data.getColors && data.getColors.length > 0) {
         data.getColors.map((item) => {
@@ -68,8 +65,6 @@ function HomePage() {
           }
         });
         setState(data.getColors);
-        console.log('mapped');
-        console.log(data.getColors);
       }
     },
   });

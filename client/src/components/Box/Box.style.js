@@ -10,6 +10,7 @@ export const Image = styled.div`
 export const Wrapper = styled.div`
   min-height: 20em;
   position: relative;
+
   width: calc(33.33% - 60px);
   text-align: center;
   background-color: white;

@@ -33,78 +33,75 @@ const Box = (props) => {
     setEditMode(!editMode);
     reset({ title: data.title, text: data.text });
   };
-  const [deleted, setDelete] = useState(false);
 
   return (
     <>
-      {deleted !== true ? (
-        <Wrapper>
-          <OutsideClickHandler
-            onOutsideClick={() => {
-              setEdit();
+      <Wrapper>
+        <OutsideClickHandler
+          onOutsideClick={() => {
+            setEdit();
+          }}
+        >
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Image>
+              <Img src={img} />
+            </Image>
+            {editMode ? (
+              <TitleInput name="title" ref={register} />
+            ) : (
+              <Title>{title}</Title>
+            )}
+            {editMode ? (
+              <>
+                <TextInput name="text" ref={register} />
+                <button type="submit" id="SaveButton">
+                  Save
+                </button>
+              </>
+            ) : (
+              <Text>{text}</Text>
+            )}
+            {editMode && (
+              <button
+                onClick={() => {
+                  setEditMode(!editMode);
+                }}
+              >
+                Cancel
+              </button>
+            )}
+          </form>
+
+          <EditButton
+            onClick={() => {
+              setEdit(!edit);
             }}
           >
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Image>
-                <Img src={img} />
-              </Image>
-              {editMode ? (
-                <TitleInput name="title" ref={register} />
-              ) : (
-                <Title>{title}</Title>
-              )}
-              {editMode ? (
-                <>
-                  <TextInput name="text" ref={register} />
-                  <button type="submit" id="SaveButton">
-                    Save
-                  </button>
-                </>
-              ) : (
-                <Text>{text}</Text>
-              )}
-              {editMode && (
-                <button
-                  onClick={() => {
-                    setEditMode(!editMode);
-                  }}
-                >
-                  Cancel
-                </button>
-              )}
-            </form>
-
-            <EditButton
-              onClick={() => {
-                setEdit(!edit);
-              }}
-            >
-              ...
-            </EditButton>
-            {edit === true ? (
-              <ButtonsWrapper>
-                <button
-                  onClick={() => {
-                    setEditMode(!editMode);
-                    setEdit(!edit);
-                  }}
-                >
-                  <img src={EditImg} className="App-edit" alt="edit" /> Edit
-                </button>
-                <button
-                  onClick={() => {
-                    deleteColor({ variables: { id } });
-                    setEdit(!edit);
-                  }}
-                >
-                  <img src={DeleteImg} className="App-delete" alt="delete" />
-                  Delete
-                </button>
-              </ButtonsWrapper>
-            ) : null}
-          </OutsideClickHandler>
-        </Wrapper>
-      ) : null}
+            ...
+          </EditButton>
+          {edit === true ? (
+            <ButtonsWrapper>
+              <button
+                onClick={() => {
+                  setEditMode(!editMode);
+                  setEdit(!edit);
+                }}
+              >
+                <img src={EditImg} className="App-edit" alt="edit" /> Edit
+              </button>
+              <button
+                onClick={() => {
+                  deleteColor({ variables: { id } });
+                  setEdit(!edit);
+                }}
+              >
+                <img src={DeleteImg} className="App-delete" alt="delete" />
+                Delete
+              </button>
+            </ButtonsWrapper>
+          ) : null}
+        </OutsideClickHandler>
+      </Wrapper>
     </>
   );
 };
