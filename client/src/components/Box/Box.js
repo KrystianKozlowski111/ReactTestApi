@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import EditImg from '../../assets/images/edit.png';
 import DeleteImg from '../../assets/images/delete.png';
 import { gql, useMutation } from '@apollo/client';
@@ -30,19 +30,20 @@ const Box = (props) => {
     },
   });
   const { title, text, img, id, updateColor } = props;
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     mode: 'onBlur',
     defaultValues: {
       title,
       text,
     },
   });
-
+  console.log(title);
   const [editMode, setEditMode] = useState(false);
   const [edit, setEdit] = useState(false);
   const onSubmit = (data) => {
     updateColor({ variables: { id, title: data.title, text: data.text } });
     setEditMode(!editMode);
+    reset({ title: data.title, text: data.text });
   };
   const [deleted, setDelete] = useState(false);
 
