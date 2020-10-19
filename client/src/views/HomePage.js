@@ -31,7 +31,12 @@ const DELETE_COLOR = gql`
 `;
 function HomePage() {
   const [state, setState] = useState([]);
-  const { loading, data } = useQuery(GET_COLORS);
+  const { loading, data } = useQuery(GET_COLORS, {
+    onCompleted: (data) => {
+      console.log(data);
+      setState(data);
+    },
+  });
   const [deleteColor] = useMutation(DELETE_COLOR, {
     onCompleted: (response) => {
       data.getColors.forEach((element, index, array) => {
@@ -44,6 +49,13 @@ function HomePage() {
     },
   });
   useEffect(() => {}, [state]);
+  useEffect(() => {
+    if (data != null) {
+      setState(data);
+      console.log('data changed');
+      console.log(state);
+    }
+  }, [data]);
   const [updateColor, editResponse] = useMutation(UPDATE_COLOR, {
     onCompleted: (response) => {
       if (data && data.getColors && data.getColors.length > 0) {
