@@ -13,6 +13,7 @@ import {
   Button,
   ListWrapper,
   ListButton,
+  MobileElemenetList,
 } from './Navbar.style';
 import OutsideClickHandler from 'react-outside-click-handler';
 const Navbar = () => {
@@ -44,36 +45,36 @@ const Navbar = () => {
                 >
                   <ListWrapper>
                     <List>
-                      <ElemenetList>
+                      <MobileElemenetList>
                         <Button href="/red" target="_blank">
                           Red
                         </Button>
-                      </ElemenetList>
-                      <ElemenetList>
+                      </MobileElemenetList>
+                      <MobileElemenetList>
                         <Button href="/red" target="_blank">
                           Blue
                         </Button>
-                      </ElemenetList>
-                      <ElemenetList>
+                      </MobileElemenetList>
+                      <MobileElemenetList>
                         <Button href="/red" target="_blank">
                           Green
                         </Button>
-                      </ElemenetList>
-                      <ElemenetList>
+                      </MobileElemenetList>
+                      <MobileElemenetList>
                         <Button href="/red" target="_blank">
                           Yellow
                         </Button>
-                      </ElemenetList>
-                      <ElemenetList>
+                      </MobileElemenetList>
+                      <MobileElemenetList>
                         <Button href="/red" target="_blank">
                           Pink
                         </Button>
-                      </ElemenetList>
-                      <ElemenetList>
+                      </MobileElemenetList>
+                      <MobileElemenetList>
                         <Button href="/red" id="last" target="_blank">
                           Purple
                         </Button>
-                      </ElemenetList>
+                      </MobileElemenetList>
                     </List>
                   </ListWrapper>
                 </OutsideClickHandler>

@@ -25,6 +25,11 @@ export const Button = styled.a`
   &#last {
     padding-right: 0px;
   }
+  ${Media.md`
+  font-size:10px;
+  
+
+`}
 `;
 
 export const Container = styled.div`
@@ -37,12 +42,13 @@ export const Container = styled.div`
 `;
 export const ListButton = styled.button`
   cursor: pointer;
-  padding-top: 30px;
+
+  z-index: 10;
   border: none;
   font-weight: bold;
   background-color: White;
   color: black;
-  top: 10px;
+  top: 40px;
   right: 10px;
   position: absolute;
   &:hover {
@@ -52,10 +58,11 @@ export const ListButton = styled.button`
 export const ListWrapper = styled.div`
   text-align: center;
   position: absolute;
+  z-index: 9;
   top: 30px;
-  height: 100px;
-  width: 50px;
-  right: 50px;
+  height: 130px;
+  width: 90px;
+  right: 5px;
   border-radius: 5px;
   display: flex;
   border: 1px solid #ccc;
@@ -76,12 +83,16 @@ export const ListWrapper = styled.div`
     cursor: pointer;
   }
 `;
-
+export const MobileElemenetList = styled.li`
+  display: block;
+  padding: 5px 0px;
+`;
 export const List = styled.ul`
   list-style: none;
   text-align: right;
   ${Media.md`
   text-align: left;
+  margin-left:-50px;
 
 `}
 `;
