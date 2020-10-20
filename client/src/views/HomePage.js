@@ -33,44 +33,39 @@ function HomePage() {
   const [state, setState] = useState([]);
 
   const { loading, data } = useQuery(GET_COLORS, {
-    onCompleted: (data) => {
-      setState(data);
+    onCompleted: (response) => {
+      const { getColor } = response;
+      setState(response);
     },
   });
-  useEffect(() => {
-    setState(data);
-  }, [state, data]);
-  useEffect(() => {
-    if (data != null) {
-      setState(data);
-    }
-  }, [data]);
+
   const [deleteColor] = useMutation(DELETE_COLOR, {
     onCompleted: (response) => {
-      data.getColors.forEach((element, index, array) => {
-        if (element.id === response.deleteColor.id) {
-          array.splice(index, 1);
-
-          setState(data.getColors);
-        }
-      });
-    },
-  });
-
-  const [updateColor] = useMutation(UPDATE_COLOR, {
-    onCompleted: (response) => {
-      if (data && data.getColors && data.getColors.length > 0) {
-        data.getColors.map((item) => {
-          if (item.id === response.updateColor.id) {
-            item.title = response.updateColor.title;
-            item.text = response.updateColor.text;
-          }
-        });
-        setState(data.getColors);
+      const { deleteColor } = response;
+      if (state && state.getColors && state.getColors.length > 0) {
+        const array = state.getColors.filter(
+          (item) => item.id !== deleteColor.id
+        );
+        setState({ getColors: array });
       }
     },
   });
-
+  const [updateColor] = useMutation(UPDATE_COLOR, {
+    onCompleted: (response) => {
+      if (state && state.getColors && state.getColors.length > 0) {
+        const array = state.getColors.map((item) => {
+          if (item.id === response.updateColor.id)
+            return {
+              ...item,
+              title: response.updateColor.title,
+              text: response.updateColor.text,
+            };
+          else return item;
+        });
+        setState({ getColors: array });
+      }
+    },
+  });
   return (
     <>
       <Section
