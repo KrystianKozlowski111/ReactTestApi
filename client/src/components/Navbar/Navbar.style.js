@@ -53,7 +53,9 @@ export const ListWrapper = styled.div`
   text-align: center;
   position: absolute;
   top: 30px;
-  right: 20px;
+  height: 100px;
+  width: 50px;
+  right: 50px;
   border-radius: 5px;
   display: flex;
   border: 1px solid #ccc;
@@ -74,6 +76,7 @@ export const ListWrapper = styled.div`
     cursor: pointer;
   }
 `;
+
 export const List = styled.ul`
   list-style: none;
   text-align: right;
@@ -82,6 +85,7 @@ export const List = styled.ul`
 
 `}
 `;
+
 export const Image = styled.div`
   display: inline-block;
 `;

@@ -14,7 +14,7 @@ import {
   ListWrapper,
   ListButton,
 } from './Navbar.style';
-
+import OutsideClickHandler from 'react-outside-click-handler';
 const Navbar = () => {
   const [edit, setEdit] = useState(false);
   return (
@@ -37,9 +37,46 @@ const Navbar = () => {
               </ListButton>
 
               {edit === true ? (
-                <ListWrapper>
-                  <button>Delete</button>
-                </ListWrapper>
+                <OutsideClickHandler
+                  onOutsideClick={() => {
+                    setEdit();
+                  }}
+                >
+                  <ListWrapper>
+                    <List>
+                      <ElemenetList>
+                        <Button href="/red" target="_blank">
+                          Red
+                        </Button>
+                      </ElemenetList>
+                      <ElemenetList>
+                        <Button href="/red" target="_blank">
+                          Blue
+                        </Button>
+                      </ElemenetList>
+                      <ElemenetList>
+                        <Button href="/red" target="_blank">
+                          Green
+                        </Button>
+                      </ElemenetList>
+                      <ElemenetList>
+                        <Button href="/red" target="_blank">
+                          Yellow
+                        </Button>
+                      </ElemenetList>
+                      <ElemenetList>
+                        <Button href="/red" target="_blank">
+                          Pink
+                        </Button>
+                      </ElemenetList>
+                      <ElemenetList>
+                        <Button href="/red" id="last" target="_blank">
+                          Purple
+                        </Button>
+                      </ElemenetList>
+                    </List>
+                  </ListWrapper>
+                </OutsideClickHandler>
               ) : null}
             </MobileView>
             <BrowserView>
