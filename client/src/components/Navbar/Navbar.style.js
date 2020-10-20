@@ -35,6 +35,45 @@ export const Container = styled.div`
   align-items: flex-end;
   padding: 30px 0px;
 `;
+export const ListButton = styled.button`
+  cursor: pointer;
+  padding-top: 30px;
+  border: none;
+  font-weight: bold;
+  background-color: White;
+  color: black;
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  &:hover {
+    outline: none;
+  }
+`;
+export const ListWrapper = styled.div`
+  text-align: center;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  border-radius: 5px;
+  display: flex;
+  border: 1px solid #ccc;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px 20px;
+  & button {
+    border: none;
+    text-align: left;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: #919bb1;
+    cursor: pointer;
+  }
+`;
 export const List = styled.ul`
   list-style: none;
   text-align: right;
