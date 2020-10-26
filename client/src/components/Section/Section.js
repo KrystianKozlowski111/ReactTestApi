@@ -6,6 +6,7 @@ import Button from '../Button';
 
 const Section = (props) => {
   const { updateColor, loading, state, deleteColor } = props;
+  console.log(state);
   return (
     <Wrapper>
       <Title>I ❤ Color</Title>
