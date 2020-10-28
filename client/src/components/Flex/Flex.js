@@ -18,7 +18,8 @@ const Flex = (props) => {
       <Wrapper>
         <Loading loading={loading} />
 
-        {state.getColors.length > 0 &&
+        {state.getColors &&
+          state.getColors.length > 0 &&
           state.getColors.map((item) => {
             if (
               item.title.toString().toLowerCase().includes(color) ||
